@@ -68,9 +68,9 @@ RUN apt-get update && \
 RUN docker-php-ext-install zip
 RUN docker-php-ext-enable apcu
 
-WORKDIR /usr/src/app
+WORKDIR $SYMFONY_PATH
 
-COPY --chown=1000:1000 apps/my-symfony-app /usr/src/app
+COPY --chown=1000:1000 symfony $SYMFONY_PATH
 
 RUN PATH=$PATH:/usr/src/app/vendor/bin:bin
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
