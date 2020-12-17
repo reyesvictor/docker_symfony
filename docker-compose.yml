@@ -67,7 +67,7 @@ services:
     ports:
       - '9200:9200'
     networks:
-      elk_stack:
+      elk:
         aliases:
           - elasticsearch
   logstash:
@@ -82,7 +82,9 @@ services:
       - './logs/symfony:${SYMFONY_PATH}/var/log:cached'
       - './logs/nginx:/var/log/nginx:cached'
     networks:
-      - elk_stack
+      - elk
+    expose: 
+      - '5044'
   kibana:
     container_name: kibana
     depends_on:
@@ -91,11 +93,28 @@ services:
     environment:
       SERVER_NAME: localhost
       ELASTICSEARCH_HOSTS: 'http://elasticsearch:9200'
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      ELASTIC_PASSWORD: epitech
     networks:
-      - elk_stack
+      - elk
     ports:
-      - '81:5601'
+      - '5601:5601'
+  filebeat:
+    build: ./filebeat
+    container_name: filebeat
+    entrypoint: "filebeat -e -strict.perms=false"
+    volumes:
+      - ./filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - ./logs/nginx:/var/log/nginx
+    networks:
+      - elk
+    depends_on:
+      - php
+      - nginx
+      - logstash
+      - elasticsearch
+      - kibana
 networks:
   mysql: null
   site: null
-  elk_stack: null
+  elk: null
