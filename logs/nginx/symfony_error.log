@@ -1,0 +1,2 @@
+2020/12/17 20:21:48 [error] 23#23: *1 upstream timed out (110: Operation timed out) while reading response header from upstream, client: 172.18.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.18.0.2:9000", host: "localhost"
+2020/12/17 20:21:48 [error] 23#23: *3 upstream timed out (110: Operation timed out) while reading response header from upstream, client: 172.18.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.18.0.2:9000", host: "symfony.localhost"

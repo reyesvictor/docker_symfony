@@ -77,4 +77,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer install --no-scripts --prefer-dist \
   && rm -rf "$(composer config cache-dir)" "$(composer config data-dir)"
 
-EXPOSE 9000
+EXPOSE 9001
