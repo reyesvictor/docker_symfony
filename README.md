@@ -2,6 +2,19 @@
 
 Résumé extrait du pdf du sujet du projet EPITECH. Introduction à Docker
 
+## Installer
+Lancer docker puis
+```
+# Lancer
+docker-compose -d
+
+# Voir les volumes
+docker-compose ps
+
+# Arrêter
+docker-compose stop
+```
+
 ## Compétences
 Lors de ce projet vous devrez utiliser et maitriser les outils suivants:
 • Docker
