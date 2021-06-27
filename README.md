@@ -19,8 +19,6 @@ Le port devra être exposé et un volume créé pour garder les données.
 ### PHP
 Ce conteneur vous permettra de déployer votre projet Symfony.
 Pour que tout fonctionne correctement, vous devrez créer un volume pour votre projet, exposer le bon port et si vous voulez bien faire les choses, créer un volume pour les logs.
-Remarque : Vous pouvez utiliser ce projet comme exemple, attention a bien modifier le .env pour que le
-projet utilise MySQL.
 
 ### Nginx
 Ce conteneur sera lié avec votre projet PHP, et exposera votre application Symfony.
@@ -35,10 +33,8 @@ d’ElasticSearch.
 Ce conteneur devra être lié à ElasticSearch, vous devrez exposer un port et créer un volume.
 Attention, contrairement à ElasticSearch où vous n’aurez pas grand chose à faire si ce n’est le conteneur; là vous devrez en plus créer un fichier de configuration pour LogStash.
 De plus, pour que vous puissiez récupérer les fichiers de logs et les envoyer à LogStash, vous devrez installer et configurer Filebeat (vous pouvez passer par un conteneur ou bien directement sur votre système).
-Bonus : Vous pouvez rajouter si vous le souhaitez d’autres produits Beats comme Packetbeat pour récupérer les données qui transitent sur votre réseau.
 
 
 ### Kibana
 Dernier élément de la stack ELK, ce conteneur vous permettra de visualiser vos logs !
 Vous devrez lier le conteneur ElasticSearch et exposer le port nécessaire pour atteindre l’application web.
-Bonus : Normalement le conteneur Nginx est déjà configuré, vous pourrez donc en plus rajouter un nouveau fichier de config pour ajouter Kibana et son nom de domaine (exemple kibana.mydomain.lan).
