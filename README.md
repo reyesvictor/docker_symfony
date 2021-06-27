@@ -17,9 +17,10 @@ docker-compose stop
 
 ## Compétences
 Lors de ce projet vous devrez utiliser et maitriser les outils suivants:
-• Docker
-• Dockerfile
-• Docker-compose
+
+- Docker
+- Dockerfile
+- Docker-compose
 
 ## CONTENEURS POUR LE PROJET SYMFONY
 Vous devez créer ici au moins 3 conteneurs.
